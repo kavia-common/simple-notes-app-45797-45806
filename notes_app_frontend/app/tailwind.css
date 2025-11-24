@@ -2,11 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #2563EB;
+  --color-secondary: #F59E0B;
+  --color-error: #EF4444;
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-[var(--color-bg)];
+  font-feature-settings: "cv02","cv03","cv04","cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+    color-scheme: light; /* Keep light scheme as requested theme uses light */
   }
+}
+
+/* Smooth transitions for interactive elements */
+* {
+  @apply transition-colors duration-150;
+}
+
+/* Utility for subtle card shadow */
+.card {
+  @apply rounded-xl bg-white shadow-sm ring-1 ring-gray-200;
 }
